@@ -1,5 +1,5 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-    base: '/cumpliendo-suenos/',
+    base: '/Cumpliendo-Sue-os/',
 });
