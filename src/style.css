@@ -1,0 +1,459 @@
+
+/* =========================
+   ESTILOS GENERALES
+========================= */
+
+:root {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #393044;
+    background-color: #f8f6fc;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-width: 320px;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
+#app {
+    max-width: 1000px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 35px;
+    background-color: white;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px rgba(80, 50, 110, 0.08);
+}
+
+/* =========================
+   TITULOS
+========================= */
+
+h1 {
+    color: #8b4fc9;
+    font-size: 38px;
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+h2 {
+    color: #563879;
+    font-size: 23px;
+    margin-top: 35px;
+    margin-bottom: 18px;
+}
+
+h3 {
+    color: #7043a1;
+    margin-bottom: 10px;
+}
+
+/* =========================
+   FORMULARIO
+========================= */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: 600;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ded5e9;
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #a66bd4;
+    box-shadow: 0 0 0 3px rgba(166, 107, 212, 0.12);
+}
+
+/* =========================
+   BOTONES
+========================= */
+
+button {
+    border: none;
+    padding: 11px 17px;
+    border-radius: 8px;
+    background-color: #9658c7;
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #7840aa;
+    transform: translateY(-1px);
+}
+
+/* =========================
+   ESTADISTICAS
+========================= */
+
+#estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+#estadisticas p {
+    background-color: #f3ecfa;
+    padding: 20px 10px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 600;
+}
+
+#estadisticas span {
+    display: block;
+    color: #8748bd;
+    font-size: 25px;
+    margin-top: 8px;
+}
+
+/* =========================
+   BUSCADOR Y FILTROS
+========================= */
+
+.controles-deseos {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+#buscador {
+    flex: 1;
+}
+
+#filtro {
+    width: 220px;
+    background-color: white;
+    cursor: pointer;
+}
+
+/* =========================
+   TARJETAS DE DESEOS
+========================= */
+
+#lista-deseos {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px;
+}
+
+#lista-deseos > div {
+    background-color: #faf8fd;
+    border: 1px solid #e9dff2;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: left;
+}
+
+#lista-deseos p {
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+/* =========================
+   BOTONES DE LOS DESEOS
+========================= */
+
+#lista-deseos button {
+    margin: 5px 5px 0 0;
+}
+
+#lista-deseos .btn-eliminar {
+    background-color: #e47b83;
+}
+
+#lista-deseos .btn-eliminar:hover {
+    background-color: #c95d67;
+}
+
+/* =========================
+   DISEÑO RESPONSIVE
+========================= */
+
+@media (max-width: 650px) {
+
+    #app {
+        width: 95%;
+        margin: 15px auto;
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 29px;
+    }
+
+    #estadisticas {
+        grid-template-columns: 1fr;
+    }
+
+    .controles-deseos {
+        flex-direction: column;
+    }
+
+    #filtro {
+        width: 100%;
+    }
+
+    #lista-deseos {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================
+   ESTADOS DE LOS DESEOS
+========================= */
+
+.tarjeta-deseo {
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-deseo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(80, 50, 110, 0.1);
+}
+
+.deseo-pendiente {
+    border-left: 5px solid #e9a23b !important;
+}
+
+.deseo-realizado {
+    border-left: 5px solid #55b982 !important;
+    background-color: #f3fbf6 !important;
+}
+
+.etiqueta-estado {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.etiqueta-pendiente {
+    background-color: #fff1d6;
+    color: #a66a12;
+}
+
+.etiqueta-realizado {
+    background-color: #d9f5e5;
+    color: #26794b;
+}
+
+
+/* HISTORIAL DE DESEOS */
+
+#lista-deseos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* TARJETAS */
+
+.tarjeta-deseo {
+    padding: 15px;
+    border-radius: 12px;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.tarjeta-deseo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.12);
+}
+
+/* NOMBRE */
+
+.tarjeta-deseo h3 {
+    font-size: 17px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+/* DESCRIPCIÓN */
+
+.tarjeta-deseo p {
+    font-size: 13px;
+    line-height: 1.5;
+    margin: 6px 0;
+}
+
+/* ESTADOS */
+
+.deseo-pendiente {
+    border-left: 4px solid #f0ad4e;
+}
+
+.deseo-realizado {
+    border-left: 4px solid #28a745;
+}
+
+/* ETIQUETAS */
+
+.etiqueta-estado {
+    display: inline-block;
+    padding: 4px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.etiqueta-pendiente {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.etiqueta-realizado {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+/* BOTONES */
+
+.tarjeta-deseo button {
+    font-size: 11px;
+    padding: 7px 9px;
+    margin: 4px 2px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 600px) {
+    #lista-deseos {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* VENTANA DE EDICIÓN */
+
+#modal-editar {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    display: block;
+    background-color: #f3ecfa;
+    border: 2px solid #9658c7;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+#modal-editar.modal-oculto {
+    display: none;
+}
+
+/* NOTIFICACIONES */
+
+.notificacion {
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    background-color: #e8f5e9;
+    color: #2e7d32;
+    padding: 18px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 2000;
+    border-left: 5px solid #4caf50;
+}
+
+/* MODAL DE CONFIRMACIÓN */
+
+#modal-confirmacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+}
+
+#modal-confirmacion.modal-oculto {
+    display: none;
+}
+
+.contenido-confirmacion {
+    background-color: #f3ecfa;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+}
+
+.contenido-confirmacion h2 {
+    color: #9658c7;
+}
+
+.botones-confirmacion {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+#confirmar-eliminar {
+    background-color: #dc3545;
+    color: white;
+}
+
+#cancelar-eliminar {
+    background-color: #9658c7;
+    color: white;
+}
